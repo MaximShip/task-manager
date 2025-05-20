@@ -1,0 +1,227 @@
+/* Общие стили */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 1.5rem;
+  color: #0d6efd;
+}
+
+/* Стили для аутентификации */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.auth-form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.auth-form .card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Стили для основного интерфейса */
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  display: flex;
+  flex: 1;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  transition: margin-left 0.3s;
+}
+
+.main-content.expanded {
+  margin-left: 0;
+}
+
+/* Стили для боковой панели */
+.sidebar {
+  width: 250px;
+  background-color: #fff;
+  border-right: 1px solid #dee2e6;
+  height: calc(100vh - 56px);
+  position: sticky;
+  top: 56px;
+  transition: all 0.3s;
+  overflow-y: auto;
+}
+
+.sidebar.collapsed {
+  margin-left: -250px;
+}
+
+.sidebar-content {
+  padding: 20px 0;
+}
+
+.sidebar-header {
+  padding: 0 20px 10px;
+  border-bottom: 1px solid #dee2e6;
+  margin-bottom: 10px;
+}
+
+.sidebar .nav-link {
+  padding: 8px 20px;
+  color: #495057;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar .nav-link:hover {
+  background-color: #f8f9fa;
+}
+
+.sidebar .nav-link.active {
+  color: #0d6efd;
+  background-color: #e9ecef;
+  font-weight: 500;
+}
+
+.sidebar .badge {
+  margin-left: auto;
+}
+
+/* Стили для списка задач */
+.task-list-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.task-item {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s;
+}
+
+.task-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.task-meta {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px solid #e9ecef;
+}
+
+.task-actions .btn {
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Стили для формы задач */
+.task-form-container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Стили для календаря */
+.calendar-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.calendar-legend {
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Стили для уведомлений */
+.notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1050;
+  padding: 15px 20px;
+  border-radius: 4px;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  animation: slideIn 0.3s, fadeOut 0.5s 2.5s;
+}
+
+.notification.hide {
+  animation: slideOut 0.3s forwards;
+}
+
+.notification-content {
+  display: flex;
+  align-items: center;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Адаптивные стили */
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1030;
+    height: 100vh;
+    top: 0;
+    left: 0;
+  }
+  
+  .main-content {
+    margin-left: 0 !important;
+  }
+  
+  .task-meta {
+    flex-direction: column;
+  }
+  
+  .task-actions {
+    margin-top: 10px;
+  }
+}
